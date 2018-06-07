@@ -1,0 +1,72 @@
+<div class="main main-raised animated fadeIn">
+
+  <div class="section section-tabs" style="background-image: url('./assets/img/city.jpg');background-repeat: no-repeat; background-position: 50% 50%; background-size: cover;">
+    <div class="container">
+      <!--                nav tabs	             -->
+      <div id="nav-tabs">
+        <div class="row">
+          <div class="col-md-12 ml-auto mr-auto">
+            <!-- Tabs with icons on Card -->
+            <div class="card card-nav-tabs">
+              <div class="card-header card-header-primary">
+                <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
+                <div class="nav-tabs-navigation">
+                  <div class="nav-tabs-wrapper">
+                    <ul class="nav nav-tabs" data-tabs="tabs">
+                      <li class="nav-item">
+                        <a class="nav-link active" href="#profile" data-toggle="tab">
+                          <i class="material-icons">local_drink</i> Gaseosas
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#messages" data-toggle="tab">
+                          <i class="material-icons">local_cafe</i> Otras Bebidas
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body ">
+                <div class="tab-content">
+                  <div class="tab-pane active" id="profile">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div style="display: block;">
+                          <canvas baseChart width="400" height="400" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
+                            [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)"
+                            (chartClick)="chartClicked($event)"></canvas>
+                        </div>
+                      </div>
+                      <div class="col-md-6" style="margin-bottom: 10px">
+                        <table class="table table-responsive table-condensed">
+                          <tr>
+                            <th *ngFor="let label of lineChartLabels">{{label}}</th>
+                          </tr>
+                          <tr *ngFor="let d of lineChartData">
+                            <td *ngFor="let label of lineChartLabels; let j=index">{{d && d.data[j]}}</td>
+                          </tr>
+                        </table>
+                        <button (click)="randomize()">CLICK</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab-pane" id="messages">
+                    <div>
+                      <div style="display: block">
+                        <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
+                          [chartType]="barChartType" (chartHover)="chartHoveredr($event)" (chartClick)="chartClickedr($event)"></canvas>
+                      </div>
+                      <button (click)="randomizer()">Update</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Tabs with icons on Card -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
