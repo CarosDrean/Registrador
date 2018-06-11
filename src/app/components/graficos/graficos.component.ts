@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { auth } from 'firebase/app';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-graficos',
@@ -7,7 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GraficosComponent implements OnInit {
 
-  constructor() { }
+  constructor(public afAuth: AngularFireAuth, private router: Router) {
+    this.afAuth.authState.subscribe( user => {
+      if (!user) {
+        this.router.navigate(['/login']);
+      }
+    });
+  }
 
   ngOnInit() {
   }

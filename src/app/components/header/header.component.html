@@ -29,6 +29,11 @@
             <i class="material-icons">cloud_download</i> Registrar
           </a>
         </li>
+        <li class="nav-item" *ngIf="usuario.uid">
+          <a routerLink="login" class="nav-link" (click)="logout()">
+            <i class="material-icons">exit_to_app</i> Cerrar Sesion
+          </a>
+        </li>
       </ul>
     </div>
   </div>

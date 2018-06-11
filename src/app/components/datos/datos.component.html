@@ -2,39 +2,239 @@
 
   <div class="section section-tabs" style="background-image: url('./assets/img/city.jpg');background-repeat: no-repeat; background-position: 50% 50%; background-size: cover;">
     <div class="container">
-      <div class="row" style="background: #fff">
-        <h2 style="margin-left: 30px;">Mes Enero</h2>
-        <table class="table" style="margin: 20px;">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">First</th>
-              <th scope="col">Last</th>
-              <th scope="col">Handle</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td>@twitter</td>
-            </tr>
-          </tbody>
-        </table>
+      <div id="nav-tabs">
+        <div class="row">
+          <div class="col-md-12 ml-auto mr-auto">
+            <!-- Tabs with icons on Card -->
+            <div class="card card-nav-tabs">
+              <div class="card-header card-header-primary">
+                <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
+                <div class="nav-tabs-navigation">
+                  <div class="nav-tabs-wrapper">
+                    <ul class="nav nav-tabs" data-tabs="tabs">
+                      <li class="nav-item">
+                        <a class="nav-link active" href="#profile" data-toggle="tab">
+                          <i class="material-icons">local_drink</i> Gaseosas
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#messages" data-toggle="tab">
+                          <i class="material-icons">local_cafe</i> Otras Bebidas
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body ">
+                <div class="tab-content">
+                  <div class="tab-pane active" id="profile">
+                    <h2 style="margin-left: 30px;">Mes Junio - Gaseosas</h2>
+                    <table class="table" style="margin: 20px;">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">La Tinguiña</th>
+                          <th scope="col">Los Aquijes</th>
+                          <th scope="col">Ocucaje</th>
+                          <th scope="col">Pachacutec</th>
+                          <th scope="col">Parcona</th>
+                          <th scope="col">Pueblo Nuevo</th>
+                          <th scope="col">Salas Guadalupe</th>
+                          <th scope="col">San José de los Molinos</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">CocaCola</th>
+                          <td>{{ _ds.datosTi.cocacola }}</td>
+                          <td>{{ _ds.datosAq.cocacola }}</td>
+                          <td>{{ _ds.datosOc.cocacola }}</td>
+                          <td>{{ _ds.datosPc.cocacola }}</td>
+                          <td>{{ _ds.datosPar.cocacola }}</td>
+                          <td>{{ _ds.datosPun.cocacola }}</td>
+                          <td>{{ _ds.datosGu.cocacola }}</td>
+                          <td>{{ _ds.datosMo.cocacola }}</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Sprite</th>
+                          <td>{{ _ds.datosTi.sprite }}</td>
+                          <td>{{ _ds.datosAq.sprite }}</td>
+                          <td>{{ _ds.datosOc.sprite }}</td>
+                          <td>{{ _ds.datosPc.sprite }}</td>
+                          <td>{{ _ds.datosPar.sprite }}</td>
+                          <td>{{ _ds.datosPun.sprite }}</td>
+                          <td>{{ _ds.datosGu.sprite }}</td>
+                          <td>{{ _ds.datosMo.sprite }}</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Fanta</th>
+                          <td>{{ _ds.datosTi.fanta }}</td>
+                          <td>{{ _ds.datosAq.fanta }}</td>
+                          <td>{{ _ds.datosOc.fanta }}</td>
+                          <td>{{ _ds.datosPc.fanta }}</td>
+                          <td>{{ _ds.datosPar.fanta }}</td>
+                          <td>{{ _ds.datosPun.fanta }}</td>
+                          <td>{{ _ds.datosGu.fanta }}</td>
+                          <td>{{ _ds.datosMo.fanta }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="tab-pane" id="messages">
+                    <h2 style="margin-left: 30px;">Mes Junio - Otras Bebidas</h2>
+                    <table class="table" style="margin: 20px;">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">La Tinguiña</th>
+                          <th scope="col">Los Aquijes</th>
+                          <th scope="col">Ocucaje</th>
+                          <th scope="col">Pachacutec</th>
+                          <th scope="col">Parcona</th>
+                          <th scope="col">Pueblo Nuevo</th>
+                          <th scope="col">Salas Guadalupe</th>
+                          <th scope="col">San José de los Molinos</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">Ciel</th>
+                          <td>{{ _ds.datosTi.ciel }}</td>
+                          <td>{{ _ds.datosAq.ciel }}</td>
+                          <td>{{ _ds.datosOc.ciel }}</td>
+                          <td>{{ _ds.datosPc.ciel }}</td>
+                          <td>{{ _ds.datosPar.ciel }}</td>
+                          <td>{{ _ds.datosPun.ciel }}</td>
+                          <td>{{ _ds.datosGu.ciel }}</td>
+                          <td>{{ _ds.datosMo.ciel }}</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Sidral</th>
+                          <td>{{ _ds.datosTi.sidral }}</td>
+                          <td>{{ _ds.datosAq.sidral }}</td>
+                          <td>{{ _ds.datosOc.sidral }}</td>
+                          <td>{{ _ds.datosPc.sidral }}</td>
+                          <td>{{ _ds.datosPar.sidral }}</td>
+                          <td>{{ _ds.datosPun.sidral }}</td>
+                          <td>{{ _ds.datosGu.sidral }}</td>
+                          <td>{{ _ds.datosMo.sidral }}</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Del Valle</th>
+                          <td>{{ _ds.datosTi.delvalle }}</td>
+                          <td>{{ _ds.datosAq.delvalle }}</td>
+                          <td>{{ _ds.datosOc.delvalle }}</td>
+                          <td>{{ _ds.datosPc.delvalle }}</td>
+                          <td>{{ _ds.datosPar.delvalle }}</td>
+                          <td>{{ _ds.datosPun.delvalle }}</td>
+                          <td>{{ _ds.datosGu.delvalle }}</td>
+                          <td>{{ _ds.datosMo.delvalle }}</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Fuze</th>
+                          <td>{{ _ds.datosTi.fuze }}</td>
+                          <td>{{ _ds.datosAq.fuze }}</td>
+                          <td>{{ _ds.datosOc.fuze }}</td>
+                          <td>{{ _ds.datosPc.fuze }}</td>
+                          <td>{{ _ds.datosPar.fuze }}</td>
+                          <td>{{ _ds.datosPun.fuze }}</td>
+                          <td>{{ _ds.datosGu.fuze }}</td>
+                          <td>{{ _ds.datosMo.fuze }}</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Powerade</th>
+                          <td>{{ _ds.datosTi.powerade }}</td>
+                          <td>{{ _ds.datosAq.powerade }}</td>
+                          <td>{{ _ds.datosOc.powerade }}</td>
+                          <td>{{ _ds.datosPc.powerade }}</td>
+                          <td>{{ _ds.datosPar.powerade }}</td>
+                          <td>{{ _ds.datosPun.powerade }}</td>
+                          <td>{{ _ds.datosGu.powerade }}</td>
+                          <td>{{ _ds.datosMo.powerade }}</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Glaceau</th>
+                          <td>{{ _ds.datosTi.glaceau }}</td>
+                          <td>{{ _ds.datosAq.glaceau }}</td>
+                          <td>{{ _ds.datosOc.glaceau }}</td>
+                          <td>{{ _ds.datosPc.glaceau }}</td>
+                          <td>{{ _ds.datosPar.glaceau }}</td>
+                          <td>{{ _ds.datosPun.glaceau }}</td>
+                          <td>{{ _ds.datosGu.glaceau }}</td>
+                          <td>{{ _ds.datosMo.glaceau }}</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Limon</th>
+                          <td>{{ _ds.datosTi.limon }}</td>
+                          <td>{{ _ds.datosAq.limon }}</td>
+                          <td>{{ _ds.datosOc.limon }}</td>
+                          <td>{{ _ds.datosPc.limon }}</td>
+                          <td>{{ _ds.datosPar.limon }}</td>
+                          <td>{{ _ds.datosPun.limon }}</td>
+                          <td>{{ _ds.datosGu.limon }}</td>
+                          <td>{{ _ds.datosMo.limon }}</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Naranja</th>
+                          <td>{{ _ds.datosTi.naranja }}</td>
+                          <td>{{ _ds.datosAq.naranja }}</td>
+                          <td>{{ _ds.datosOc.naranja }}</td>
+                          <td>{{ _ds.datosPc.naranja }}</td>
+                          <td>{{ _ds.datosPar.naranja }}</td>
+                          <td>{{ _ds.datosPun.naranja }}</td>
+                          <td>{{ _ds.datosGu.naranja }}</td>
+                          <td>{{ _ds.datosMo.naranja }}</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Santa Clara</th>
+                          <td>{{ _ds.datosTi.santaclara }}</td>
+                          <td>{{ _ds.datosAq.santaclara }}</td>
+                          <td>{{ _ds.datosOc.santaclara }}</td>
+                          <td>{{ _ds.datosPc.santaclara }}</td>
+                          <td>{{ _ds.datosPar.santaclara }}</td>
+                          <td>{{ _ds.datosPun.santaclara }}</td>
+                          <td>{{ _ds.datosGu.santaclara }}</td>
+                          <td>{{ _ds.datosMo.santaclara }}</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Fresca</th>
+                          <td>{{ _ds.datosTi.fresca }}</td>
+                          <td>{{ _ds.datosAq.fresca }}</td>
+                          <td>{{ _ds.datosOc.fresca }}</td>
+                          <td>{{ _ds.datosPc.fresca }}</td>
+                          <td>{{ _ds.datosPar.fresca }}</td>
+                          <td>{{ _ds.datosPun.fresca }}</td>
+                          <td>{{ _ds.datosGu.fresca }}</td>
+                          <td>{{ _ds.datosMo.fresca }}</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Ades</th>
+                          <td>{{ _ds.datosTi.ades }}</td>
+                          <td>{{ _ds.datosAq.ades }}</td>
+                          <td>{{ _ds.datosOc.ades }}</td>
+                          <td>{{ _ds.datosPc.ades }}</td>
+                          <td>{{ _ds.datosPar.ades }}</td>
+                          <td>{{ _ds.datosPun.ades }}</td>
+                          <td>{{ _ds.datosGu.ades }}</td>
+                          <td>{{ _ds.datosMo.ades }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Tabs with icons on Card -->
+          </div>
+        </div>
       </div>
+
+      <!--<ul style="background: #fff">
+        <li class="text" *ngFor="let registro of items | async">
+          {{registro.cocacola}}
+        </li>
+      </ul>-->
     </div>
   </div>
 </div>

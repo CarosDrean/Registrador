@@ -1,7 +1,7 @@
 <div class="main main-raised animated fadeIn">
 
-  <div class="section section-tabs" style="background-image: url('./assets/img/city.jpg');background-repeat: no-repeat; background-position: 50% 50%; background-size: cover;">
-    <div class="alert alert-warning" style="margin-right: 20px; margin-left: 20px;">
+  <div class="section section-tabs animated fadeIn" style="background-image: url('./assets/img/city.jpg');background-repeat: no-repeat; background-position: 50% 50%; background-size: cover;">
+    <div class="alert alert-warning" style="margin-right: 20px; margin-left: 20px;" *ngIf="advertencia">
       <div class="container">
         <div class="alert-icon">
           <i class="material-icons">warning</i>
@@ -12,6 +12,19 @@
           </span>
         </button>
         <b>Atencion:</b> Para poder guardar los Datos debera completar los campos de todas las pestañas.
+      </div>
+    </div>
+    <div class="alert alert-success animated fadeIn" style="margin-right: 20px; margin-left: 20px;" *ngIf="guardado">
+      <div class="container">
+        <div class="alert-icon">
+          <i class="material-icons">check</i>
+        </div>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">
+            <i class="material-icons">clear</i>
+          </span>
+        </button>
+        <b>Guardado con exito:</b> Los datos fueron guardados exitosamente.
       </div>
     </div>
     <div class="container">
@@ -59,7 +72,7 @@
                                 />
                               </span>
                             </div>
-                            <input type="number" class="form-control" placeholder="Coca Cola">
+                            <input type="number" class="form-control" name="cocacola" [(ngModel)]="cocacola" placeholder="Coca Cola">
                           </div>
                         </div>
                         <div class="form-group">
@@ -70,7 +83,7 @@
                                 />
                               </span>
                             </div>
-                            <input type="number" class="form-control" placeholder="Sprite">
+                            <input type="number" class="form-control" name="sprite" [(ngModel)]="sprite" placeholder="Sprite">
                           </div>
                         </div>
                         <div class="form-group">
@@ -81,7 +94,7 @@
                                 />
                               </span>
                             </div>
-                            <input type="number" class="form-control" placeholder="Fanta">
+                            <input type="number" class="form-control" name="fanta" [(ngModel)]="fanta" placeholder="Fanta">
                           </div>
                         </div>
                       </div>
@@ -98,7 +111,7 @@
                                 />
                               </span>
                             </div>
-                            <input type="number" class="form-control" placeholder="Ciel">
+                            <input type="number" class="form-control" name="ciel" [(ngModel)]="ciel" placeholder="Ciel">
                           </div>
                         </div>
                         <div class="form-group">
@@ -109,7 +122,7 @@
                                 />
                               </span>
                             </div>
-                            <input type="number" class="form-control" placeholder="Sidral Mundet">
+                            <input type="number" class="form-control" name="sidral" [(ngModel)]="sidral" placeholder="Sidral Mundet">
                           </div>
                         </div>
                         <div class="form-group">
@@ -119,7 +132,7 @@
                                 <img style="width: 20px" src="https://exactodigital.com/wp-content/uploads/Del-Valle-Fresh-Naranja-500ml.png" />
                               </span>
                             </div>
-                            <input type="number" class="form-control" placeholder="Del Valle">
+                            <input type="number" class="form-control" name="delvalle" [(ngModel)]="delvalle" placeholder="Del Valle">
                           </div>
                         </div>
                         <div class="form-group">
@@ -130,7 +143,7 @@
                                 />
                               </span>
                             </div>
-                            <input type="number" class="form-control" placeholder="Fuze Tea">
+                            <input type="number" class="form-control" name="fuze" [(ngModel)]="fuze" placeholder="Fuze Tea">
                           </div>
                         </div>
                         <div class="form-group">
@@ -141,7 +154,7 @@
                                 />
                               </span>
                             </div>
-                            <input type="number" class="form-control" placeholder="Powerade">
+                            <input type="number" class="form-control" name="powerade" [(ngModel)]="powerade" placeholder="Powerade">
                           </div>
                         </div>
                         <div class="form-group">
@@ -152,7 +165,7 @@
                                 />
                               </span>
                             </div>
-                            <input type="number" class="form-control" placeholder="Glaceau">
+                            <input type="number" class="form-control" name="glaceau" [(ngModel)]="glaceau" placeholder="Glaceau">
                           </div>
                         </div>
                         <div class="form-group">
@@ -163,7 +176,7 @@
                                 />
                               </span>
                             </div>
-                            <input type="number" class="form-control" placeholder="Limon & nada">
+                            <input type="number" class="form-control" name="limon" [(ngModel)]="limon" placeholder="Limon & nada">
                           </div>
                         </div>
                         <div class="form-group">
@@ -174,7 +187,7 @@
                                 />
                               </span>
                             </div>
-                            <input type="number" class="form-control" placeholder="Naranja & Nada">
+                            <input type="number" class="form-control" name="naranja" [(ngModel)]="naranja" placeholder="Naranja & Nada">
                           </div>
                         </div>
                         <div class="form-group">
@@ -185,7 +198,7 @@
                                 />
                               </span>
                             </div>
-                            <input type="number" class="form-control" placeholder="Santa Clara">
+                            <input type="number" class="form-control" name="santaclara" [(ngModel)]="santaclara" placeholder="Santa Clara">
                           </div>
                         </div>
                         <div class="form-group">
@@ -196,7 +209,7 @@
                                 />
                               </span>
                             </div>
-                            <input type="number" class="form-control" placeholder="Fresca">
+                            <input type="number" class="form-control" name="fresca" [(ngModel)]="fresca" placeholder="Fresca">
                           </div>
                         </div>
                         <div class="form-group">
@@ -207,7 +220,7 @@
                                 />
                               </span>
                             </div>
-                            <input type="number" class="form-control" placeholder="Ades">
+                            <input type="number" class="form-control" name="ades" [(ngModel)]="ades" placeholder="Ades">
                           </div>
                         </div>
                       </div>
@@ -223,16 +236,17 @@
                                 <i class="fa fa-user-circle"></i>
                               </span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Personal">
+                            <input type="text" class="form-control" name="nombre" [(ngModel)]="nombre" placeholder="Personal">
                           </div>
                         </div>
                         <div class="form-group" style="margin-left: 20px;">
                           <label class="label-control">Fecha</label>
-                          <input type="text" class="form-control datetimepicker" value="06/07/2018">
+                          <input type="text" class="form-control datetimepicker" name="fecha" [(ngModel)]="fecha" value="06/07/2018">
                         </div>
                         <div class="form-group" style="margin-left: 20px;">
                           <label for="sel1">Lugar:</label>
-                          <select class="form-control" id="sel1">
+                          <select [(ngModel)]="distritos" [ngModelOptions]="{standalone: true}" (change)="obtenerSeleccion()" class="form-control"
+                            id="sel1">
                             <option>La Tinguiña</option>
                             <option>Los Aquijes</option>
                             <option>Ocucaje</option>
@@ -246,7 +260,8 @@
 
                       </div>
                       <div class="card-footer justify-content-center">
-                        <a href="#pablo" class="btn btn-link btn-primary btn-lg">Guardar</a>
+
+                        <a (click)="guardarDatos()" class="btn btn-link btn-primary btn-lg">Guardar</a>
                       </div>
                     </form>
                   </div>
