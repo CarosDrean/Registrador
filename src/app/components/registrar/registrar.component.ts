@@ -74,7 +74,7 @@ export class RegistrarComponent implements OnInit {
       uid: this.usuario.uid,
       tiempo: new Date().getTime(),
       nombre: this.nombre,
-      fecha: this.fecha,
+      fecha: '11/06/2018',
       lugar: this.distrito,
       cocacola: this.cocacola,
       sprite: this.sprite,

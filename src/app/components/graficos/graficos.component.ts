@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { auth } from 'firebase/app';
 import {Router} from '@angular/router';
+import { DatosService } from '../../providers/datos.service';
 
 @Component({
   selector: 'app-graficos',
@@ -10,7 +11,10 @@ import {Router} from '@angular/router';
 })
 export class GraficosComponent implements OnInit {
 
-  constructor(public afAuth: AngularFireAuth, private router: Router) {
+  constructor(public afAuth: AngularFireAuth, private router: Router, public _ds: DatosService) {
+    this._ds.cargarDatos().subscribe( data => {
+      this.rellenar();
+    });
     this.afAuth.authState.subscribe( user => {
       if (!user) {
         this.router.navigate(['/login']);
@@ -21,47 +25,101 @@ export class GraficosComponent implements OnInit {
   ngOnInit() {
   }
 
+  rellenar() {
+    this.lineChartData = [
+      {data: [
+        this._ds.datosTi.cocacola, this._ds.datosAq.cocacola, this._ds.datosOc.cocacola,
+        this._ds.datosPc.cocacola, this._ds.datosPar.cocacola, this._ds.datosPun.cocacola,
+        this._ds.datosGu.cocacola, this._ds.datosMo.cocacola], label: 'Coca Cola'},
+      {data: [
+        this._ds.datosTi.sprite, this._ds.datosAq.sprite, this._ds.datosOc.sprite,
+        this._ds.datosPc.sprite, this._ds.datosPar.sprite, this._ds.datosPun.sprite,
+        this._ds.datosGu.sprite, this._ds.datosMo.sprite], label: 'Sprite'},
+      {data: [
+        this._ds.datosTi.fanta, this._ds.datosAq.fanta, this._ds.datosOc.fanta,
+        this._ds.datosPc.fanta, this._ds.datosPar.fanta, this._ds.datosPun.fanta,
+        this._ds.datosGu.fanta, this._ds.datosMo.fanta], label: 'Fanta'}];
+
+    this.lineChartData2 = [
+      {data: [
+        this._ds.datosTi.cocacola, this._ds.datosAq.cocacola, this._ds.datosOc.cocacola,
+        this._ds.datosPc.cocacola, this._ds.datosPar.cocacola, this._ds.datosPun.cocacola,
+        this._ds.datosGu.cocacola, this._ds.datosMo.cocacola], label: 'Siel'},
+      {data: [
+        this._ds.datosTi.sprite, this._ds.datosAq.sprite, this._ds.datosOc.sprite,
+        this._ds.datosPc.sprite, this._ds.datosPar.sprite, this._ds.datosPun.sprite,
+        this._ds.datosGu.sprite, this._ds.datosMo.sprite], label: 'Sidral'},
+      {data: [
+        this._ds.datosTi.fanta, this._ds.datosAq.fanta, this._ds.datosOc.fanta,
+        this._ds.datosPc.fanta, this._ds.datosPar.fanta, this._ds.datosPun.fanta,
+        this._ds.datosGu.fanta, this._ds.datosMo.fanta], label: 'Del Valle'},
+      {data: [
+        this._ds.datosTi.cocacola, this._ds.datosAq.cocacola, this._ds.datosOc.cocacola,
+        this._ds.datosPc.cocacola, this._ds.datosPar.cocacola, this._ds.datosPun.cocacola,
+        this._ds.datosGu.cocacola, this._ds.datosMo.cocacola], label: 'Fuze'},
+      {data: [
+        this._ds.datosTi.sprite, this._ds.datosAq.sprite, this._ds.datosOc.sprite,
+        this._ds.datosPc.sprite, this._ds.datosPar.sprite, this._ds.datosPun.sprite,
+        this._ds.datosGu.sprite, this._ds.datosMo.sprite], label: 'Powerade'},
+      {data: [
+        this._ds.datosTi.fanta, this._ds.datosAq.fanta, this._ds.datosOc.fanta,
+        this._ds.datosPc.fanta, this._ds.datosPar.fanta, this._ds.datosPun.fanta,
+        this._ds.datosGu.fanta, this._ds.datosMo.fanta], label: 'Glaceau'},
+      {data: [
+        this._ds.datosTi.cocacola, this._ds.datosAq.cocacola, this._ds.datosOc.cocacola,
+        this._ds.datosPc.cocacola, this._ds.datosPar.cocacola, this._ds.datosPun.cocacola,
+        this._ds.datosGu.cocacola, this._ds.datosMo.cocacola], label: 'Limon'},
+      {data: [
+        this._ds.datosTi.sprite, this._ds.datosAq.sprite, this._ds.datosOc.sprite,
+        this._ds.datosPc.sprite, this._ds.datosPar.sprite, this._ds.datosPun.sprite,
+        this._ds.datosGu.sprite, this._ds.datosMo.sprite], label: 'Naranja'},
+      {data: [
+        this._ds.datosTi.fanta, this._ds.datosAq.fanta, this._ds.datosOc.fanta,
+        this._ds.datosPc.fanta, this._ds.datosPar.fanta, this._ds.datosPun.fanta,
+        this._ds.datosGu.fanta, this._ds.datosMo.fanta], label: 'Santa Clara'},
+      {data: [
+        this._ds.datosTi.sprite, this._ds.datosAq.sprite, this._ds.datosOc.sprite,
+        this._ds.datosPc.sprite, this._ds.datosPar.sprite, this._ds.datosPun.sprite,
+        this._ds.datosGu.sprite, this._ds.datosMo.sprite], label: 'Fresca'},
+      {data: [
+        this._ds.datosTi.fanta, this._ds.datosAq.fanta, this._ds.datosOc.fanta,
+        this._ds.datosPc.fanta, this._ds.datosPar.fanta, this._ds.datosPun.fanta,
+        this._ds.datosGu.fanta, this._ds.datosMo.fanta], label: 'Ades'}];
+  }
+
   // lineChart
 
   // tslint:disable-next-line:member-ordering
   public lineChartData: Array<any> = [
-    {data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A'},
-    {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B'},
-    {data: [18, 48, 77, 9, 100, 27, 40], label: 'Series C'}
+    {data: [28, 48, 40, 19, 86, 27, 90, 60], label: 'Coca Cola'},
+    {data: [28, 48, 40, 19, 86, 27, 90, 60], label: 'Sprite'},
+    {data: [18, 48, 77, 9, 100, 27, 40, 100], label: 'Fanta'}
   ];
+
   // tslint:disable-next-line:member-ordering
-  public lineChartLabels: Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  public lineChartData2: Array<any> = [
+    {data: [28, 48, 40, 19, 86, 27, 90, 60], label: 'Siel'},
+    {data: [28, 48, 40, 19, 86, 27, 90, 60], label: 'Sidral'},
+    {data: [18, 48, 77, 9, 100, 27, 40, 100], label: 'Del Valle'},
+    {data: [28, 48, 40, 19, 86, 27, 90, 60], label: 'Fuze'},
+    {data: [28, 48, 40, 19, 86, 27, 90, 60], label: 'Powerade'},
+    {data: [18, 48, 77, 9, 100, 27, 40, 100], label: 'Glaceau'},
+    {data: [28, 48, 40, 19, 86, 27, 90, 60], label: 'Limon'},
+    {data: [28, 48, 40, 19, 86, 27, 90, 60], label: 'Naranja'},
+    {data: [18, 48, 77, 9, 100, 27, 40, 100], label: 'Santa Clara'},
+    {data: [28, 48, 40, 19, 86, 27, 90, 60], label: 'Fresca'},
+    {data: [18, 48, 77, 9, 100, 27, 40, 100], label: 'Ades'}
+  ];
+
+  // tslint:disable-next-line:member-ordering
+  public lineChartLabels: Array<any> = [
+    'La Tinguiña', 'Los Aquijes', 'Ocucaje', 'Pachacutec', 'Parcona', 'Pueblo Nuevo', 'Salas Guadalupe', 'Los Molinos'];
   // tslint:disable-next-line:member-ordering
   public lineChartOptions: any = {
     responsive: true
   };
   // tslint:disable-next-line:member-ordering
-  public lineChartColors: Array<any> = [
-    { // grey
-      backgroundColor: 'rgba(148,159,177,0.2)',
-      borderColor: 'rgba(148,159,177,1)',
-      pointBackgroundColor: 'rgba(148,159,177,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
-    },
-    { // dark grey
-      backgroundColor: 'rgba(77,83,96,0.2)',
-      borderColor: 'rgba(77,83,96,1)',
-      pointBackgroundColor: 'rgba(77,83,96,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(77,83,96,1)'
-    },
-    { // grey
-      backgroundColor: 'rgba(148,159,177,0.2)',
-      borderColor: 'rgba(148,159,177,1)',
-      pointBackgroundColor: 'rgba(148,159,177,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
-    }
-  ];
+  public lineChartColors: Array<any> = [];
   // tslint:disable-next-line:member-ordering
   public lineChartLegend = true;
   // tslint:disable-next-line:member-ordering
@@ -92,7 +150,8 @@ export class GraficosComponent implements OnInit {
   };
 
   // tslint:disable-next-line:member-ordering
-  public barChartLabels: string[] = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
+  public barChartLabels: string[] = [
+    'La Tinguiña', 'Los Aquijes', 'Ocucaje', 'Pachacutec', 'Parcona', 'Pueblo Nuevo', 'Salas Guadalupe', 'Los Molinos'];
   // tslint:disable-next-line:member-ordering
   public barChartType = 'bar';
   // tslint:disable-next-line:member-ordering
@@ -100,9 +159,19 @@ export class GraficosComponent implements OnInit {
 
   // tslint:disable-next-line:member-ordering
   public barChartData: any[] = [
-    { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A'},
-    { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B'}
+    { data: [65, 59, 80, 81, 56, 55, 40], label: 'Coca Cola'},
+    { data: [28, 48, 40, 19, 86, 27, 90], label: 'Sprite'},
+    { data: [28, 48, 40, 19, 86, 27, 90], label: 'Fanta'}
   ];
+
+  // tslint:disable-next-line:member-ordering
+  public pieChartLabels: string[] = [
+    'La Tinguiña', 'Los Aquijes', 'Ocucaje', 'Pachacutec', 'Parcona', 'Pueblo Nuevo', 'Salas Guadalupe', 'Los Molinos'
+  ];
+  // tslint:disable-next-line:member-ordering
+  public pieChartData: number[] = [300, 500, 100, 300, 500, 100, 500, 100];
+  // tslint:disable-next-line:member-ordering
+  public pieChartType = 'pie';
 
   // events
   public chartClickedr(e: any): void {

@@ -31,34 +31,50 @@
                 <div class="tab-content">
                   <div class="tab-pane active" id="profile">
                     <div class="row">
-                      <div class="col-md-6">
-                        <div style="display: block;">
-                          <canvas baseChart width="400" height="400" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
+                      <div class="col-md-12">
+                        <h2 style="margin-left: 30px;">Mes Junio - Gaseosas</h2>
+                        <!--<div style="display: block;">
+                          <canvas baseChart width="400" height="200" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
                             [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)"
                             (chartClick)="chartClicked($event)"></canvas>
+                        </div>-->
+                        <div>
+                          <div style="display: block">
+                            <canvas baseChart [datasets]="lineChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
+                              [chartType]="barChartType" (chartHover)="chartHoveredr($event)" (chartClick)="chartClickedr($event)"></canvas>
+                          </div>
                         </div>
-                      </div>
-                      <div class="col-md-6" style="margin-bottom: 10px">
-                        <table class="table table-responsive table-condensed">
-                          <tr>
-                            <th *ngFor="let label of lineChartLabels">{{label}}</th>
-                          </tr>
-                          <tr *ngFor="let d of lineChartData">
-                            <td *ngFor="let label of lineChartLabels; let j=index">{{d && d.data[j]}}</td>
-                          </tr>
-                        </table>
-                        <button (click)="randomize()">CLICK</button>
+                        <h2 style="margin-left: 30px;">Cantidad de Pedidos por Distrito</h2>
+                        <div style="display: block; margin-top: 30px;">
+                          <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" (chartHover)="chartHovered($event)"
+                            (chartClick)="chartClicked($event)"></canvas>
+                        </div>
                       </div>
                     </div>
                   </div>
                   <div class="tab-pane" id="messages">
-                    <div>
-                      <div style="display: block">
-                        <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
-                          [chartType]="barChartType" (chartHover)="chartHoveredr($event)" (chartClick)="chartClickedr($event)"></canvas>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <h2 style="margin-left: 30px;">Mes Junio - Otras Bebidas</h2>
+                        <!--<div style="display: block;">
+                          <canvas baseChart width="400" height="200" [datasets]="lineChartData2" [labels]="lineChartLabels" [options]="lineChartOptions"
+                            [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)"
+                            (chartClick)="chartClicked($event)"></canvas>
+                        </div>-->
+                        <div>
+                          <div style="display: block">
+                            <canvas baseChart [datasets]="lineChartData2" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
+                              [chartType]="barChartType" (chartHover)="chartHoveredr($event)" (chartClick)="chartClickedr($event)"></canvas>
+                          </div>
+                        </div>
+                        <h2 style="margin-left: 30px;">Mes Junio - Gaseosas</h2>
+                        <div style="display: block; margin-top: 30px;">
+                          <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" (chartHover)="chartHovered($event)"
+                            (chartClick)="chartClicked($event)"></canvas>
+                        </div>
                       </div>
-                      <button (click)="randomizer()">Update</button>
                     </div>
+
                   </div>
                 </div>
               </div>
