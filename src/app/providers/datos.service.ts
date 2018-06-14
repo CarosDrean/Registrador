@@ -27,6 +27,13 @@ export class DatosService {
   public datosPun: Datos = this.dato();
   public datosGu: Datos = this.dato();
   public datosMo: Datos = this.dato();
+
+  public one = [0, 0, 0, 0, 0, 0, 0, 0];
+  public two = [0, 0, 0, 0, 0, 0, 0, 0];
+
+  bebidas = ['cocacola', 'sprite', 'fanta'];
+  bebidas2 = ['siel', 'sidral', 'delvalle', 'fuze', 'powerade', 'glaceau', 'limon', 'naranja', 'santaclara', 'fresca', 'ades'];
+
   // tslint:disable-next-line:max-line-length
   public lugares = [
     'La Tinguiña',
@@ -55,15 +62,39 @@ export class DatosService {
     );
     return this.itemsCollection.valueChanges().pipe(
       map((datos: Datos[]) => {
-        console.log(datos);
         this.datos = datos;
         this.agruparColleciones();
+        this.pie();
       })
     );
   }
 
   agregarDato(datos: Datos) {
     return this.itemsCollection.doc(String(datos.tiempo)).set(datos);
+  }
+
+  pie() {
+    // tslint:disable-next-line:max-line-length
+    const datos: Datos[] = [this.datosTi, this.datosAq, this.datosOc, this.datosPc, this.datosPar, this.datosPun, this.datosGu, this.datosMo];
+
+    // this.one[0] = this.datosTi.cocacola + this.datosTi.sprite + this.datosTi.fanta;
+
+    // tslint:disable-next-line:forin
+    for (const i in datos) {
+      this.one[i] = datos[i].cocacola + datos[i].sprite + datos[i].fanta;
+    }
+
+    // tslint:disable-next-line:forin
+    for (const i in datos) {
+      this.two[i] = datos[i].ciel + datos[i].sidral + datos[i].delvalle +
+                    datos[i].fuze + datos[i].powerade + datos[i].glaceau +
+                    datos[i].limon + datos[i].naranja + datos[i].santaclara +
+                    datos[i].fresca + datos[i].ades;
+    }
+  }
+
+  sumarBasico(a: number, b: number) {
+    return a + b;
   }
 
   agruparColleciones() {
@@ -93,7 +124,6 @@ export class DatosService {
       (datos: Datos) => datos.lugar === 'San José de los Molinos'
     );
     this.armarDatos();
-    console.log(this.datosPar);
   }
 
   dato (): Datos {
@@ -158,7 +188,6 @@ export class DatosService {
   }
 
   sumar(lista: Datos[], nombre: string): number {
-    // this.datosPa
     let suma = 0;
     switch (nombre) {
       case 'cocacola':

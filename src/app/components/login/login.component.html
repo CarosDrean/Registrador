@@ -1,6 +1,19 @@
 <div class="container animated fadeIn">
   <div class="row">
     <div class="col-md-8 ml-auto mr-auto">
+      <div class="alert alert-danger animated fadeIn" style="margin-top: 20px;" *ngIf="logeo">
+        <div class="container">
+          <div class="alert-icon">
+            <i class="material-icons">error_outline</i>
+          </div>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">
+              <i class="material-icons">clear</i>
+            </span>
+          </button>
+          <b>Error:</b> Credenciales Invalidas
+        </div>
+      </div>
       <div class="card card-signup">
         <h2 class="card-title text-center">Iniciar</h2>
         <div class="card-body">

@@ -26,6 +26,14 @@ export class GraficosComponent implements OnInit {
   }
 
   rellenar() {
+    this.pieChartData = [
+      this._ds.one[0], this._ds.one[1], this._ds.one[2], this._ds.one[3],
+      this._ds.one[4], this._ds.one[5], this._ds.one[6], this._ds.one[7]];
+
+    this.pieChartData2 = [
+      this._ds.two[0], this._ds.two[1], this._ds.two[2], this._ds.two[3],
+      this._ds.two[4], this._ds.two[5], this._ds.two[6], this._ds.two[7]];
+
     this.lineChartData = [
       {data: [
         this._ds.datosTi.cocacola, this._ds.datosAq.cocacola, this._ds.datosOc.cocacola,
@@ -170,6 +178,8 @@ export class GraficosComponent implements OnInit {
   ];
   // tslint:disable-next-line:member-ordering
   public pieChartData: number[] = [300, 500, 100, 300, 500, 100, 500, 100];
+  // tslint:disable-next-line:member-ordering
+  public pieChartData2: number[] = [300, 500, 100, 300, 500, 100, 500, 100];
   // tslint:disable-next-line:member-ordering
   public pieChartType = 'pie';
 

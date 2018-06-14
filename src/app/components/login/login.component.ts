@@ -11,6 +11,7 @@ export class LoginComponent implements OnInit {
 
   email = '';
   contrasena = '';
+  logeo = false;
 
   constructor(public afAuth: AngularFireAuth, private router: Router) {
     this.logout();
@@ -28,7 +29,7 @@ export class LoginComponent implements OnInit {
 
   login(correo, pass) {
     this.afAuth.auth.signInWithEmailAndPassword(correo, pass).catch(login => {
-      console.log('Iniciando');
+      this.logeo = true;
     });
   }
 
